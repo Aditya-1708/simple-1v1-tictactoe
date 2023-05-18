@@ -22,9 +22,14 @@ public class matrixGen {
 	}
 	public void infocoordinates(int c) {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("enter the coordinates of your pawn");
+		if(c%2!=0){
+			System.out.println("enter the coordinates "+name1+" : ");
+		}
+		else 
+			System.out.println("enter the coordinates "+name2+" : ");
 		m=sc.nextInt();
 		n=sc.nextInt();
+
 		if(c%2==0) change(m,n,'o');
 		else if(c%2!=0) change(m,n,'x');
 	}
