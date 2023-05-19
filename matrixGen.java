@@ -25,13 +25,19 @@ public class matrixGen {
 		if(c%2!=0){
 			System.out.println("enter the coordinates "+name1+" : ");
 		}
-		else 
-			System.out.println("enter the coordinates "+name2+" : ");
+		else System.out.println("enter the coordinates "+name2+" : ");
 		m=sc.nextInt();
 		n=sc.nextInt();
-
-		if(c%2==0) change(m,n,'o');
-		else if(c%2!=0) change(m,n,'x');
+		if((m<=0||m>3)||(n<=0||n>3)){
+			System.out.println("enter valid coordinates");
+			infocoordinates(c);
+		}
+		if(mat[(2*m)-1][(2*n)-1]=='o'||mat[(2*m)-1][(2*n)-1]=='x'){
+			System.out.println("This place is already marked please enter another index");
+			infocoordinates(c);
+		}
+		if(c%2==0) change((2*m)-1,(2*n)-1,'o');
+		else if(c%2!=0) change((2*m)-1,(2*n)-1,'x');
 	}
 	public void clear() {
 		 try {
@@ -88,7 +94,7 @@ public class matrixGen {
 		else if((mat[1][3]=='o'&&mat[3][3]=='o'&&mat[5][3]=='o')||(mat[1][3]=='x'&&mat[3][3]=='x'&&mat[5][3]=='x')) {
 			return true;
 		}
-		else if((mat[5][5]=='o'&&mat[5][5]=='o'&&mat[5][5]=='o')||(mat[5][5]=='x'&&mat[5][5]=='x'&&mat[5][5]=='x')) {
+		else if((mat[1][5]=='o'&&mat[3][5]=='o'&&mat[5][5]=='o')||(mat[1][5]=='x'&&mat[3][5]=='x'&&mat[5][5]=='x')) {
 			return true;
 		}
 		else return false;
